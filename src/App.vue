@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="flex-container">
+
+    <the-div v-for="person in people" :key="person.id" :div-text="person.name" :person-id="person.id"></the-div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TheDiv from "@/components/TheDiv";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {TheDiv},
+  comments: ['TheDiv'],
+  data(){
+    return {
+      people: [{id: 1, name: 'Uroš'}, {id: 2, name: 'Peđa'}]
+    }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+.flex-container {
+  display: flex;
 }
+
+
 </style>
